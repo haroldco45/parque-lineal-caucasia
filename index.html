@@ -1,0 +1,841 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ojo al Parque Lineal</title>
+<meta name="description" content="Seguimiento ciudadano a la obra del Parque Lineal del barrio El Triángulo, segunda etapa, en Caucasia (Antioquia). Contrato de obra 041 de 2026.">
+<meta name="theme-color" content="#1E6B4A">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta property="og:title" content="Ojo al Parque Lineal — Caucasia">
+<meta property="og:description" content="$2.801 millones de regalías para el Parque Lineal de El Triángulo. Mire cómo va la obra, qué dice el contrato y qué preguntar.">
+<meta property="og:image" content="img/acta-inicio.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --concreto:#E4E5E1;
+  --losa:#F7F7F4;
+  --asfalto:#1D2320;
+  --gris:#5B625E;
+  --linea:#C9CBC5;
+  --verde:#1E6B4A;
+  --verde-hondo:#134733;
+  --amarillo:#F2B705;
+  --rojo:#B8322A;
+  --rojo-suave:#F6E2DF;
+  --sombra:0 1px 0 rgba(29,35,32,.08),0 8px 24px -12px rgba(29,35,32,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --concreto:#161B18;--losa:#1F2622;--asfalto:#ECEDE8;--gris:#A3AAA5;--linea:#36403A;
+    --verde:#3FA57A;--verde-hondo:#0F3A29;--rojo:#E2675D;--rojo-suave:#3A1F1C;
+  }
+}
+:root[data-theme="dark"]{
+  --concreto:#161B18;--losa:#1F2622;--asfalto:#ECEDE8;--gris:#A3AAA5;--linea:#36403A;
+  --verde:#3FA57A;--verde-hondo:#0F3A29;--rojo:#E2675D;--rojo-suave:#3A1F1C;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--concreto);color:var(--asfalto);font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;font-size:17px;line-height:1.5;padding-bottom:84px}
+img{max-width:100%;display:block}
+a{color:var(--verde)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}
+.angosto{font-stretch:68%;font-variation-settings:"wdth" 68}
+.num{font-variant-numeric:tabular-nums}
+
+/* Cinta de obra: el único movimiento automático */
+.cinta{background:repeating-linear-gradient(-45deg,var(--amarillo) 0 22px,#1D2320 22px 44px);height:12px}
+.estado{background:#1D2320;color:#F7F7F4;overflow:hidden;white-space:nowrap;font-weight:700;font-variation-settings:"wdth" 75;letter-spacing:.01em}
+.estado .pista{display:inline-block;padding:7px 0;animation:corre 38s linear infinite}
+.estado span{padding:0 28px}
+.estado b{color:var(--amarillo)}
+@keyframes corre{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.estado .pista{animation:none}}
+
+/* Barra superior */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
+.marca{font-weight:900;font-variation-settings:"wdth" 70;font-size:20px;line-height:1;text-decoration:none;color:var(--asfalto)}
+.marca small{display:block;font-weight:500;font-size:13px;color:var(--gris);font-variation-settings:"wdth" 90}
+.acciones{display:flex;gap:8px}
+.btn{border:2px solid var(--asfalto);background:transparent;border-radius:999px;padding:7px 14px;font-weight:700;cursor:pointer;font-size:15px;white-space:nowrap}
+.btn.lleno{background:var(--verde);border-color:var(--verde);color:#fff}
+.btn.amar{background:var(--amarillo);border-color:var(--amarillo);color:#1D2320}
+.btn:disabled{opacity:.55;cursor:progress}
+
+/* LA VALLA: el héroe es la valla informativa que el contrato obliga a instalar */
+.valla{margin:6px 0 0;background:var(--verde);color:#fff;border-radius:6px;overflow:hidden;box-shadow:var(--sombra);border:6px solid #F7F7F4;outline:1px solid var(--linea)}
+.valla .franja{display:flex;justify-content:space-between;gap:12px;background:var(--verde-hondo);padding:10px 18px;font-weight:700;font-size:14px;font-variation-settings:"wdth" 85}
+.valla .cuerpo{padding:22px 18px 18px}
+.valla h1{margin:0;font-weight:900;font-variation-settings:"wdth" 64;font-size:clamp(40px,9vw,92px);line-height:.9;letter-spacing:-.01em}
+.valla h1 em{font-style:normal;display:block;color:var(--amarillo)}
+.valla .objeto{margin:14px 0 0;max-width:62ch;font-size:16px;opacity:.92}
+.datos{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.22);margin-top:20px;border-radius:4px;overflow:hidden}
+.datos div{background:var(--verde);padding:12px 14px}
+.datos dt{font-size:13px;opacity:.8}
+.datos dd{margin:2px 0 0;font-weight:800;font-size:clamp(18px,3.4vw,26px);font-variation-settings:"wdth" 78;line-height:1.1}
+@media(min-width:760px){.datos{grid-template-columns:repeat(4,1fr)}}
+
+/* Cinta métrica del plazo */
+.metro{background:#F7F7F4;color:#1D2320;padding:16px 18px 18px}
+.metro .lee{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.metro .grande{font-weight:900;font-variation-settings:"wdth" 66;font-size:clamp(30px,6vw,48px);line-height:1}
+.regla{position:relative;height:46px;margin-top:12px;background:#fff;border:2px solid #1D2320;border-radius:3px;overflow:hidden}
+.regla .lleno{position:absolute;inset:0 auto 0 0;width:0;background:var(--amarillo);transition:width 1.6s cubic-bezier(.2,.8,.2,1)}
+.regla .marcas{position:absolute;inset:0;background:repeating-linear-gradient(90deg,#1D2320 0 1px,transparent 1px calc(100%/123));opacity:.35;-webkit-mask:linear-gradient(#000 0 30%,transparent 30%);mask:linear-gradient(#000 0 30%,transparent 30%)}
+.regla .meses{position:absolute;inset:auto 0 4px 0;display:flex;font-size:12px;font-weight:700}
+.regla .meses span{border-left:2px solid #1D2320;padding-left:4px;height:18px;line-height:18px}
+.regla .hoy{position:absolute;top:-2px;bottom:-2px;width:3px;background:var(--rojo)}
+@media (prefers-reduced-motion:reduce){.regla .lleno{transition:none}}
+
+/* Secciones */
+section{padding:34px 0 8px;scroll-margin-top:12px}
+h2{font-weight:900;font-variation-settings:"wdth" 70;font-size:clamp(28px,5vw,40px);line-height:1;margin:0 0 6px}
+.bajada{color:var(--gris);margin:0 0 18px;max-width:65ch}
+.panel{background:var(--losa);border:1px solid var(--linea);border-radius:6px;padding:18px}
+.grid2{display:grid;gap:14px}
+@media(min-width:820px){.grid2{grid-template-columns:1fr 1fr}}
+.grid2>*,.hoy-lista>*,.docs>*,.noticias>*{min-width:0}
+.secop-tabla td{overflow-wrap:anywhere}
+input[type=file]{max-width:100%}
+form.reg>*,.check>*{min-width:0}
+
+/* Hoy */
+.hoy-lista{display:grid;gap:12px}
+@media(min-width:820px){.hoy-lista{grid-template-columns:1.2fr 1fr}}
+.reloj{font-weight:900;font-variation-settings:"wdth" 66;font-size:clamp(44px,10vw,84px);line-height:.9}
+.hito{border-left:6px solid var(--amarillo);padding:4px 0 4px 14px;margin:12px 0}
+.hito strong{display:block;font-variation-settings:"wdth" 80}
+.vivo{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:14px}
+.vivo::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--gris)}
+.vivo.ok::before{background:#2DB36F}
+.vivo.mal::before{background:var(--rojo)}
+.secop-tabla{width:100%;border-collapse:collapse;font-size:15px}
+.secop-tabla td{padding:7px 0;border-bottom:1px solid var(--linea);vertical-align:top}
+.secop-tabla td:first-child{color:var(--gris);padding-right:12px;width:44%}
+
+/* Línea de tiempo (sí es una secuencia) */
+.tiempo{list-style:none;margin:0;padding:0;position:relative}
+.tiempo::before{content:"";position:absolute;left:11px;top:6px;bottom:6px;width:3px;background:var(--linea)}
+.tiempo li{position:relative;padding:0 0 18px 40px}
+.tiempo li::before{content:"";position:absolute;left:3px;top:4px;width:19px;height:19px;border-radius:50%;background:var(--losa);border:3px solid var(--gris)}
+.tiempo li.paso::before{background:var(--verde);border-color:var(--verde)}
+.tiempo li.ojo::before{background:var(--rojo);border-color:var(--rojo)}
+.tiempo li.ahora::before{background:var(--amarillo);border-color:#1D2320}
+.tiempo time{font-weight:800;font-variation-settings:"wdth" 78;display:block}
+.tiempo p{margin:2px 0 0;color:var(--gris);max-width:62ch}
+
+/* La plata */
+.barra-plata{display:flex;height:64px;border-radius:4px;overflow:hidden;border:2px solid var(--asfalto);margin:14px 0 8px}
+.barra-plata div{display:flex;align-items:center;padding:0 10px;font-weight:800;font-size:14px;color:#fff;white-space:nowrap;overflow:hidden}
+.ley{display:grid;gap:8px;font-size:15px}
+.ley span{display:inline-block;width:12px;height:12px;border-radius:2px;margin-right:8px;vertical-align:-1px}
+.cifra{font-weight:900;font-variation-settings:"wdth" 70;font-size:clamp(26px,5vw,38px);line-height:1}
+.pagos{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px}
+.pagos div{border-top:4px solid var(--verde);padding-top:6px}
+.pagos b{display:block;font-size:22px;font-variation-settings:"wdth" 75}
+
+/* Lo que no cuadra */
+.alerta{background:var(--rojo-suave);border:2px solid var(--rojo);border-radius:6px;padding:16px 18px;margin-bottom:12px}
+.alerta h3{margin:0 0 6px;font-variation-settings:"wdth" 78;font-size:20px;line-height:1.15}
+.alerta p{margin:6px 0;max-width:68ch}
+.alerta blockquote{margin:8px 0;padding:8px 12px;border-left:4px solid var(--rojo);background:var(--losa);font-size:15px}
+.alerta .pregunta{font-weight:700}
+
+/* Documentos reales */
+.docs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(min-width:820px){.docs{grid-template-columns:repeat(4,1fr)}}
+.docs figure{margin:0;background:var(--losa);border:1px solid var(--linea);border-radius:6px;overflow:hidden;cursor:zoom-in}
+.docs img{aspect-ratio:3/4;object-fit:cover;object-position:top;width:100%;background:#fff}
+.docs figcaption{padding:8px 10px;font-size:14px;font-weight:600}
+dialog{border:0;padding:0;max-width:min(860px,96vw);max-height:94vh;border-radius:6px;background:#fff}
+dialog::backdrop{background:rgba(10,14,12,.8)}
+dialog img{width:100%}
+dialog .cerrar{position:sticky;top:0;display:block;width:100%;border:0;background:#1D2320;color:#fff;padding:10px;font-weight:700;cursor:pointer}
+
+/* Mapa y video */
+.mapa{width:100%;height:340px;border:0;border-radius:6px;display:block;background:var(--linea)}
+.video{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Ojo a la obra */
+.check{display:grid;gap:8px}
+.check label{display:flex;gap:12px;align-items:flex-start;background:var(--losa);border:1px solid var(--linea);border-radius:6px;padding:12px 14px;cursor:pointer}
+.check input{width:22px;height:22px;accent-color:var(--verde);flex:none;margin-top:2px}
+.check small{display:block;color:var(--gris)}
+form.reg{display:grid;gap:10px}
+form.reg label{font-weight:700;font-size:15px}
+input[type=text],input[type=date],input[type=search],select,textarea{width:100%;padding:11px 12px;border:2px solid var(--linea);border-radius:6px;background:var(--losa)}
+textarea{min-height:96px;resize:vertical}
+.entrada{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--linea)}
+.entrada img{width:96px;height:96px;object-fit:cover;border-radius:4px}
+.entrada .sinfoto{width:96px;height:96px;border-radius:4px;background:repeating-linear-gradient(-45deg,var(--linea) 0 8px,transparent 8px 16px)}
+
+/* Petición */
+.carta{white-space:pre-wrap;background:#fff;color:#1D2320;border:1px solid var(--linea);border-radius:6px;padding:18px;font-size:15px;line-height:1.55;max-height:420px;overflow:auto}
+.fila{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+
+/* Noticias */
+.noticias{display:grid;gap:12px}
+@media(min-width:820px){.noticias{grid-template-columns:1fr 1fr}}
+.nota{display:grid;grid-template-columns:110px 1fr;gap:12px;background:var(--losa);border:1px solid var(--linea);border-radius:6px;overflow:hidden;text-decoration:none;color:inherit}
+.nota img,.nota .sinfoto{width:110px;height:100%;min-height:96px;object-fit:cover}
+.nota .sinfoto{background:linear-gradient(135deg,var(--verde),var(--verde-hondo))}
+.nota div{padding:10px 12px 10px 0}
+.nota b{display:block;line-height:1.25;font-variation-settings:"wdth" 85}
+.nota small{color:var(--gris)}
+.nueva{display:inline-block;background:var(--amarillo);color:#1D2320;font-weight:800;font-size:12px;padding:1px 7px;border-radius:3px;margin-right:6px}
+.vacio{padding:18px;border:2px dashed var(--linea);border-radius:6px;color:var(--gris)}
+
+/* Galería */
+.galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+@media(min-width:820px){.galeria{grid-template-columns:repeat(4,1fr)}}
+.galeria figure{margin:0}
+.galeria img{aspect-ratio:1;object-fit:cover;border-radius:4px;width:100%}
+.galeria figcaption{font-size:13px;color:var(--gris)}
+
+/* Pestañas inferiores: solo texto */
+nav.tabs{position:fixed;left:0;right:0;bottom:0;z-index:20;background:#1D2320;padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs .wrap{display:flex;overflow-x:auto;scrollbar-width:none;padding:0 8px}
+nav.tabs a{flex:1 0 auto;color:#C9CBC5;text-decoration:none;font-weight:700;font-size:15px;font-variation-settings:"wdth" 80;padding:16px 12px;text-align:center;border-top:4px solid transparent}
+nav.tabs a.activo{color:#fff;border-top-color:var(--amarillo)}
+
+.pie{padding:36px 0 24px;color:var(--gris);font-size:14px}
+.pie a{color:inherit}
+.aviso{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);background:#1D2320;color:#fff;padding:10px 16px;border-radius:999px;font-weight:700;opacity:0;transition:.25s;z-index:30;pointer-events:none;max-width:90vw;text-align:center}
+.aviso.ver{opacity:1;transform:translateX(-50%) translateY(0)}
+.anuncio{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;background:var(--asfalto);color:var(--concreto);border-radius:6px;padding:16px 18px;margin-top:28px}
+.anuncio a{color:var(--amarillo);font-weight:800}
+</style>
+</head>
+<body>
+<div class="cinta" aria-hidden="true"></div>
+<div class="estado" aria-live="polite"><div class="pista" id="pista"></div></div>
+
+<div class="wrap">
+  <header class="top">
+    <a class="marca" href="#hoy"><span data-t="marca">Ojo al Parque Lineal</span><small data-t="marcaSub">Caucasia, Antioquia</small></a>
+    <div class="acciones">
+      <button class="btn" id="btnIdioma" aria-label="Change language">English</button>
+      <button class="btn lleno" id="btnActualizar" data-t="actualizar">Actualizar</button>
+    </div>
+  </header>
+
+  <!-- La valla -->
+  <div class="valla" id="valla">
+    <div class="franja"><span data-t="vallaArriba">Obra pública con plata de regalías</span><span>Contrato 041 de 2026</span></div>
+    <div class="cuerpo">
+      <h1><span data-t="h1a">Parque Lineal</span><em data-t="h1b">El Triángulo, segunda etapa</em></h1>
+      <p class="objeto" data-t="objeto">Mejoramiento y recuperación del espacio público con la adecuación y dotación del parque lineal del barrio El Triángulo, en el área urbana de Caucasia.</p>
+      <dl class="datos">
+        <div><dt data-t="dValor">Valor de la obra</dt><dd class="num">$2.801.867.017</dd></div>
+        <div><dt data-t="dPlazo">Plazo</dt><dd data-t="dPlazoV">4 meses</dd></div>
+        <div><dt data-t="dContratista">Contratista</dt><dd>M&amp;L Concretos y Diseños S.A.S.</dd></div>
+        <div><dt data-t="dContratante">Contrata</dt><dd>EDUAN (Andes)</dd></div>
+      </dl>
+    </div>
+    <div class="metro">
+      <div class="lee">
+        <div><div class="grande num" id="metroDia">Día –</div><span id="metroTexto"></span></div>
+        <div style="text-align:right"><b data-t="entrega">Entrega pactada</b><br><span data-t="entregaF">14 de febrero de 2027</span></div>
+      </div>
+      <div class="regla" role="img" id="regla" aria-label="">
+        <div class="lleno" id="reglaLleno"></div>
+        <div class="marcas"></div>
+        <div class="meses" id="reglaMeses"></div>
+        <div class="hoy" id="reglaHoy"></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="hoy">
+    <h2 data-t="hHoy">Hoy en la obra</h2>
+    <p class="bajada" id="hoyFecha"></p>
+    <div class="hoy-lista">
+      <div class="panel">
+        <div class="reloj num" id="faltan">–</div>
+        <div id="faltanTxt"></div>
+        <div id="hitos"></div>
+        <p id="preguntaDia" style="margin-bottom:0"></p>
+      </div>
+      <div class="panel">
+        <div class="vivo" id="secopEstado" data-t="secopBuscando">Buscando en SECOP…</div>
+        <table class="secop-tabla" id="secopTabla"></table>
+        <p style="font-size:14px;color:var(--gris);margin:10px 0 0" data-t="secopNota">Datos abiertos de Colombia Compra Eficiente. Se consultan cada vez que usted abre la app.</p>
+        <div class="vivo" id="notasHoy" style="margin-top:14px"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contrato">
+    <h2 data-t="hContrato">Qué se firmó</h2>
+    <p class="bajada" data-t="contratoBajada">Todo sale de los documentos que EDUAN publicó en el SECOP II. Toque una página para verla completa.</p>
+    <div class="docs" id="docs"></div>
+    <div class="grid2" style="margin-top:14px">
+      <div class="panel" id="fichaPartes"></div>
+      <div class="panel" id="fichaPolizas"></div>
+    </div>
+    <h2 style="margin-top:34px;font-size:28px" data-t="hTiempo">Fecha por fecha</h2>
+    <ol class="tiempo" id="tiempo"></ol>
+  </section>
+
+  <section id="plata">
+    <h2 data-t="hPlata">La plata</h2>
+    <p class="bajada" data-t="plataBajada">El proyecto se paga con regalías del Sistema General de Regalías (asignaciones directas de Caucasia).</p>
+    <div class="grid2">
+      <div class="panel">
+        <div data-t="plataTotal">Total aprobado para el proyecto</div>
+        <div class="cifra num">$2.955.457.046</div>
+        <div class="barra-plata" aria-hidden="true">
+          <div style="flex:2801867017;background:var(--verde)">Obra 94,8%</div>
+          <div style="flex:153590029;background:#1D2320">5,2%</div>
+        </div>
+        <div class="ley">
+          <div><span style="background:var(--verde)"></span><b class="num">$2.801.867.017</b> <span data-t="plataObra" style="width:auto;height:auto;background:none;margin:0"> obra (M&amp;L Concretos y Diseños)</span></div>
+          <div><span style="background:#1D2320"></span><b class="num">$153.590.029</b> <span data-t="plataInter" style="width:auto;height:auto;background:none;margin:0"> interventoría (CONSUIDEA S.A.S.)</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div data-t="plataPago">Cómo se le paga al contratista, según el contrato</div>
+        <div class="pagos">
+          <div><b>50%</b><span data-t="pAnticipo">Anticipo</span><br><small class="num">$1.400.933.509</small></div>
+          <div><b>50%</b><span data-t="pActas">Actas de avance</span><br><small class="num">$1.400.933.509</small></div>
+          <div style="border-top-color:var(--rojo)"><b>10%</b><span data-t="pSaldo">Saldo final</span><br><small class="num">$280.186.702</small></div>
+        </div>
+        <p style="margin:14px 0 0;font-size:15px" data-t="pSuma">Ojo: 50% + 50% + 10% da 110%. Vea "Lo que no cuadra".</p>
+        <div style="margin-top:16px">
+          <div data-t="pDia">Si la plata se gastara pareja en los 123 días, cada día de obra vale</div>
+          <div class="cifra num" id="porDia">$22.779.407</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="nocuadra">
+    <h2 data-t="hNoCuadra">Lo que no cuadra</h2>
+    <p class="bajada" data-t="noCuadraBajada">Son preguntas, no acusaciones. Salen de leer los documentos publicados; puede haber adendas o aclaraciones en el SECOP que las respondan. Para eso está el derecho de petición.</p>
+    <div id="alertas"></div>
+  </section>
+
+  <section id="ojo">
+    <h2 data-t="hOjo">Ojo a la obra</h2>
+    <p class="bajada" data-t="ojoBajada">Si usted vive o pasa por El Triángulo, esto es lo que el contrato obliga a tener en la obra. Marque lo que vea.</p>
+    <div class="grid2">
+      <div class="check" id="checklist"></div>
+      <div>
+        <iframe class="mapa" loading="lazy" title="Mapa El Triángulo, Caucasia" src="https://www.google.com/maps?q=Barrio+El+Tri%C3%A1ngulo,+Caucasia,+Antioquia&t=k&z=16&output=embed"></iframe>
+        <div class="video" style="margin-top:12px">
+          <iframe loading="lazy" title="Video del sector El Triángulo" src="https://www.youtube-nocookie.com/embed/aDzVLl9D_i0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <p style="font-size:14px;color:var(--gris);margin:6px 0 0" data-t="videoNota">Video del sector El Triángulo publicado en YouTube.</p>
+      </div>
+    </div>
+
+    <h2 style="margin-top:34px;font-size:28px" data-t="hBitacora">Mi bitácora de la obra</h2>
+    <p class="bajada" data-t="bitacoraBajada">Anote lo que vio, con foto. Se guarda en su celular y lo puede mandar por WhatsApp.</p>
+    <div class="grid2">
+      <form class="reg panel" id="formBitacora">
+        <label for="bFecha" data-t="bFecha">Fecha</label>
+        <input type="date" id="bFecha" required>
+        <label for="bQue" data-t="bQue">Qué vio</label>
+        <select id="bQue"></select>
+        <label for="bNota" data-t="bNota">Detalle</label>
+        <textarea id="bNota" data-tp="bNotaPh" placeholder="Ej.: 6 trabajadores con casco, retiraron el piso viejo del costado norte."></textarea>
+        <label for="bFoto" data-t="bFoto">Foto (opcional)</label>
+        <input type="file" id="bFoto" accept="image/*" capture="environment">
+        <button class="btn lleno" type="submit" data-t="bGuardar">Guardar en mi bitácora</button>
+      </form>
+      <div class="panel"><div id="bLista"></div></div>
+    </div>
+
+    <h2 style="margin-top:34px;font-size:28px" data-t="hFotos">Fotos de la obra</h2>
+    <div class="galeria" id="galeria"></div>
+  </section>
+
+  <section id="peticion">
+    <h2 data-t="hPeticion">Pida la información</h2>
+    <p class="bajada" data-t="peticionBajada">Un derecho de petición listo para mandar a EDUAN. Por ley deben responder en máximo 10 días hábiles cuando se piden documentos (Ley 1755 de 2015).</p>
+    <div class="grid2">
+      <form class="reg panel" id="formPeticion">
+        <label for="pNombre" data-t="pNombre">Su nombre completo</label>
+        <input type="text" id="pNombre" autocomplete="name">
+        <label for="pCedula" data-t="pCedula">Cédula</label>
+        <input type="text" id="pCedula" inputmode="numeric">
+        <label for="pBarrio" data-t="pBarrio">Barrio o dirección</label>
+        <input type="text" id="pBarrio">
+        <label for="pCorreo" data-t="pCorreo">Correo para la respuesta</label>
+        <input type="text" id="pCorreo" inputmode="email" autocomplete="email">
+        <div data-t="pQuePide" style="font-weight:700;font-size:15px">Qué quiere pedir</div>
+        <div class="check" id="pPuntos"></div>
+      </form>
+      <div>
+        <div class="carta" id="carta"></div>
+        <div class="fila">
+          <button class="btn lleno" id="pCopiar" data-t="pCopiar">Copiar carta</button>
+          <a class="btn amar" id="pCorreoBtn" href="#" data-t="pEnviar" style="text-decoration:none">Enviar por correo</a>
+          <a class="btn" id="pWhats" href="#" target="_blank" rel="noopener" data-t="pWhats" style="text-decoration:none">Compartir por WhatsApp</a>
+        </div>
+        <p style="font-size:14px;color:var(--gris)" data-t="pDestino">Va para contratacion@eduan.gov.co con copia a gestiondocumental@eduan.gov.co. Guarde el correo de envío: es su prueba de radicación.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="noticias">
+    <h2 data-t="hNoticias">Noticias</h2>
+    <p class="bajada" id="noticiasBajada"></p>
+    <input type="search" id="buscar" data-tp="buscarPh" placeholder="Buscar en las noticias (parque, EDUAN, Caucasia…)" style="margin-bottom:12px">
+    <div class="noticias" id="listaNoticias"></div>
+  </section>
+
+  <div class="anuncio">
+    <div><b data-t="adTitulo">¿Su negocio necesita una app como esta?</b><br><span data-t="adTexto">Vibras Positivas HM hace apps y herramientas digitales para negocios del Bajo Cauca.</span></div>
+    <a href="https://vibraspositivashm.com" target="_blank" rel="noopener">vibraspositivashm.com</a>
+  </div>
+
+  <footer class="pie">
+    <p data-t="pie1">App ciudadana hecha por Vibras Positivas HM con documentos públicos del SECOP II (proceso EDUAN 077-2026, contrato CO-041-2026). No es una página oficial de la Alcaldía ni de EDUAN.</p>
+    <p><a href="https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.11089876" target="_blank" rel="noopener" data-t="pieSecop">Ver el proceso en el SECOP II</a></p>
+    <p id="pieAct"></p>
+  </footer>
+</div>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#hoy" data-t="tHoy">Hoy</a>
+    <a href="#contrato" data-t="tContrato">Contrato</a>
+    <a href="#plata" data-t="tPlata">La plata</a>
+    <a href="#nocuadra" data-t="tNoCuadra">No cuadra</a>
+    <a href="#ojo" data-t="tOjo">Ojo a la obra</a>
+    <a href="#peticion" data-t="tPeticion">Petición</a>
+    <a href="#noticias" data-t="tNoticias">Noticias</a>
+  </div>
+</nav>
+
+<dialog id="visor"><button class="cerrar" data-t="cerrar">Cerrar</button><img id="visorImg" alt=""></dialog>
+<div class="aviso" id="aviso" role="status"></div>
+
+<script>
+"use strict";
+/* ===== Datos del contrato (de los PDF del SECOP II) ===== */
+const C = {
+  inicio:"2026-10-15", fin:"2027-02-14", totalDias:123,
+  valor:2801867017, interventoria:153590029, total:2955457046,
+  secopUrl:"https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.11089876",
+  correos:["contratacion@eduan.gov.co","gestiondocumental@eduan.gov.co"]
+};
+
+/* ===== Idioma ===== */
+let LANG = "es";
+try{ LANG = localStorage.getItem("pl_lang") || "es"; }catch(e){}
+const T = {
+ es:{},
+ en:{
+  marca:"Eye on the Linear Park", marcaSub:"Caucasia, Antioquia", actualizar:"Refresh",
+  vallaArriba:"Public works paid with royalty funds", h1a:"Linear Park", h1b:"El Triángulo, phase two",
+  objeto:"Improvement and recovery of public space by building and equipping the linear park in the El Triángulo neighborhood, in urban Caucasia.",
+  dValor:"Works contract", dPlazo:"Term", dPlazoV:"4 months", dContratista:"Contractor", dContratante:"Contracting entity",
+  entrega:"Agreed delivery", entregaF:"February 14, 2027",
+  hHoy:"Today at the site", secopBuscando:"Checking SECOP…", secopNota:"Open data from Colombia Compra Eficiente, checked every time you open the app.",
+  hContrato:"What was signed", contratoBajada:"Everything comes from the documents EDUAN published on SECOP II. Tap a page to see it full size.",
+  hTiempo:"Date by date", hPlata:"The money", plataBajada:"The project is paid with General Royalties System funds (Caucasia's direct allocations).",
+  plataTotal:"Total approved for the project", plataObra:" construction (M&L Concretos y Diseños)", plataInter:" independent oversight (CONSUIDEA S.A.S.)",
+  plataPago:"How the contractor gets paid, according to the contract", pAnticipo:"Advance", pActas:"Progress payments", pSaldo:"Final balance",
+  pSuma:"Note: 50% + 50% + 10% adds up to 110%. See \"What doesn't add up\".",
+  pDia:"If the money were spent evenly over the 123 days, each day of work is worth",
+  hNoCuadra:"What doesn't add up", noCuadraBajada:"These are questions, not accusations. They come from reading the published documents; there may be addenda or clarifications on SECOP that answer them. That is what a right-of-petition request is for.",
+  hOjo:"Watch the site", ojoBajada:"If you live in or pass through El Triángulo, this is what the contract requires at the site. Check what you see.",
+  videoNota:"Video of the El Triángulo area published on YouTube.",
+  hBitacora:"My site log", bitacoraBajada:"Write down what you saw, with a photo. It is saved on your phone and you can send it on WhatsApp.",
+  bFecha:"Date", bQue:"What you saw", bNota:"Details", bNotaPh:"E.g.: 6 workers with helmets, old paving removed on the north side.", bFoto:"Photo (optional)", bGuardar:"Save to my log",
+  hFotos:"Photos of the works",
+  hPeticion:"Request the information", peticionBajada:"A right-of-petition letter ready to send to EDUAN. By law they must answer within 10 business days when documents are requested (Law 1755 of 2015). The letter itself is in Spanish, as the entity requires.",
+  pNombre:"Your full name", pCedula:"ID number (cédula)", pBarrio:"Neighborhood or address", pCorreo:"Email for the reply", pQuePide:"What you want to request",
+  pCopiar:"Copy letter", pEnviar:"Send by email", pWhats:"Share on WhatsApp",
+  pDestino:"It goes to contratacion@eduan.gov.co with a copy to gestiondocumental@eduan.gov.co. Keep the sent email: it is your proof of filing.",
+  hNoticias:"News", buscarPh:"Search the news (park, EDUAN, Caucasia…)",
+  adTitulo:"Does your business need an app like this?", adTexto:"Vibras Positivas HM builds apps and digital tools for businesses in Bajo Cauca.",
+  pie1:"Citizen app made by Vibras Positivas HM from public SECOP II documents (EDUAN process 077-2026, contract CO-041-2026). Not an official page of the Mayor's office or EDUAN.",
+  pieSecop:"See the process on SECOP II",
+  tHoy:"Today", tContrato:"Contract", tPlata:"Money", tNoCuadra:"Doesn't add up", tOjo:"Watch", tPeticion:"Petition", tNoticias:"News", cerrar:"Close"
+ }
+};
+const L = (es,en)=> LANG==="en" ? en : es;
+
+function aplicarIdioma(){
+  document.documentElement.lang = LANG;
+  document.querySelectorAll("[data-t]").forEach(el=>{
+    const k = el.dataset.t;
+    if(!el.dataset.es) el.dataset.es = el.textContent;
+    el.textContent = LANG==="en" && T.en[k] ? T.en[k] : el.dataset.es;
+  });
+  document.querySelectorAll("[data-tp]").forEach(el=>{
+    const k = el.dataset.tp;
+    if(!el.dataset.esp) el.dataset.esp = el.placeholder;
+    el.placeholder = LANG==="en" && T.en[k] ? T.en[k] : el.dataset.esp;
+  });
+  document.getElementById("btnIdioma").textContent = LANG==="en" ? "Español" : "English";
+  pintarTodo();
+}
+document.getElementById("btnIdioma").onclick = ()=>{
+  LANG = LANG==="en" ? "es" : "en";
+  try{ localStorage.setItem("pl_lang",LANG); }catch(e){}
+  aplicarIdioma();
+};
+
+/* ===== Fechas en hora de Colombia ===== */
+function hoyBogota(){
+  const p = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Bogota",year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  return p; // AAAA-MM-DD
+}
+const dUTC = s => { const [y,m,d]=s.split("-").map(Number); return Date.UTC(y,m-1,d); };
+const diasEntre = (a,b) => Math.round((dUTC(b)-dUTC(a))/864e5);
+function fechaLarga(s){
+  return new Intl.DateTimeFormat(LANG==="en"?"en-US":"es-CO",{timeZone:"UTC",day:"numeric",month:"long",year:"numeric"}).format(new Date(dUTC(s)));
+}
+function horaBogota(d){
+  return new Intl.DateTimeFormat(LANG==="en"?"en-US":"es-CO",{timeZone:"America/Bogota",dateStyle:"medium",timeStyle:"short"}).format(d);
+}
+const pesos = n => "$" + Math.round(n).toLocaleString("es-CO");
+
+/* ===== Línea de tiempo ===== */
+const TIEMPO = [
+ {f:"2026-09-18", es:"Certificado de disponibilidad SPGR No. 3326 (regalías).", en:"Royalty budget availability certificate SPGR No. 3326."},
+ {f:"2026-09-21", es:"La Secretaría de Infraestructura de Caucasia da viabilidad. El alcalde Jhoan Oderis Montes Cortes expide el Decreto 104 y designa a EDUAN como ejecutora.", en:"Caucasia's Infrastructure Office approves the project. Mayor Jhoan Oderis Montes Cortes issues Decree 104 naming EDUAN as executing entity."},
+ {f:"2026-10-09", es:"EDUAN expide el CDP No. 90074.", en:"EDUAN issues budget certificate CDP No. 90074."},
+ {f:"2026-10-13", es:"EDUAN publica la Invitación Pública 077-2026.", en:"EDUAN publishes Public Invitation 077-2026."},
+ {f:"2026-10-14", es:"Se firma el contrato 041 con M&L Concretos y Diseños S.A.S. Aseguradora Solidaria expide las pólizas. Registro presupuestal No. 90074.", en:"Contract 041 is signed with M&L Concretos y Diseños S.A.S. Aseguradora Solidaria issues the bonds. Budget commitment No. 90074.", ojo:true},
+ {f:"2026-10-15", es:"Acta de inicio firmada en Andes. Empieza a correr el plazo de 4 meses. Interventoría: CONSUIDEA S.A.S.", en:"Start certificate signed in Andes. The 4-month term begins. Oversight: CONSUIDEA S.A.S.", ojo:true},
+ {f:"2026-10-20", es:"El proceso aparece publicado en el SECOP II.", en:"The process appears on SECOP II."},
+ {f:"2026-10-26", es:"Cierre de ofertas según el cronograma de la invitación.", en:"Bid deadline according to the invitation's schedule.", ojo:true},
+ {f:"2026-10-29", es:"Adjudicación según el cronograma de la invitación.", en:"Award date according to the invitation's schedule.", ojo:true},
+ {f:"2026-11-15", es:"Se cumple el primer mes de obra: debe salir el primer informe mensual de avance a la interventoría.", en:"First month of work: the first monthly progress report to the oversight firm is due."},
+ {f:"2026-12-15", es:"Segundo mes: la obra debería ir por la mitad del plazo.", en:"Second month: the works should be halfway through the term."},
+ {f:"2027-01-15", es:"Tercer mes de obra y tercer informe mensual.", en:"Third month of work and third monthly report."},
+ {f:"2027-02-14", es:"Fin del plazo de 4 meses. Entrega de la obra a la comunidad y al Municipio, con manual de mantenimiento.", en:"End of the 4-month term. Handover to the community and the Municipality, with a maintenance manual."},
+ {f:"2027-06-14", es:"Vence la póliza de cumplimiento: plazo para liquidar el contrato. Luego la obra queda asegurada 5 años por estabilidad.", en:"Performance bond expires: deadline to close out the contract. Then the works stay insured for 5 years for stability."}
+];
+
+/* ===== Lo que no cuadra ===== */
+const ALERTAS = [
+ {t:["El contrato se firmó antes de recibir las ofertas","The contract was signed before bids were received"],
+  p:["La invitación se publicó el 13 de octubre y su propio cronograma decía: ofertas hasta el 26 de octubre, evaluación el 27 y 28, y adjudicación el 29 de octubre. Pero el contrato aparece firmado el 14 de octubre y el acta de inicio el 15. El 28 de octubre el SECOP todavía mostraba el proceso en fase de \"Presentación de oferta\".",
+     "The invitation was published on October 13 and its own schedule said: bids until October 26, evaluation on the 27th and 28th, award on October 29. Yet the contract appears signed on October 14 and the start certificate on the 15th. On October 28 SECOP still showed the process in the \"bid submission\" phase."],
+  q:["¿Hubo una adenda que cambiara el cronograma? ¿Cuántas ofertas llegaron y cuándo?","Was there an addendum that changed the schedule? How many bids arrived, and when?"]},
+ {t:["El contrato describe una vía, no un parque","The contract describes a road, not a park"],
+  p:["El objeto dice parque lineal, pero el parágrafo de la cláusula primera habla de \"demolición de pavimento existente\", \"pavimento en concreto hidráulico\" y \"bordillos\" para \"garantizar la transitabilidad\". Y la cláusula 32 ubica la obra en \"tramos de la red vial terciaria\" según \"el proceso 009-2026\".",
+     "The purpose says linear park, but the paragraph of clause one talks about \"demolishing existing pavement\", \"hydraulic concrete pavement\" and \"curbs\" to \"guarantee road access\". Clause 32 places the works on \"stretches of the tertiary road network\" according to \"process 009-2026\"."],
+  cita:"Cláusula trigésima segunda: \"…específicamente en los tramos de la red vial terciaria identificados con deficiencias en la rasante… conforme a los antecedentes del proceso 009-2026\".",
+  q:["¿Es un error de copiado de otro contrato? ¿Qué obras exactas trae el parque: senderos, luces, juegos, árboles, bancas?","Is it a copy error from another contract? What exactly will the park have: paths, lights, play areas, trees, benches?"]},
+ {t:["Los pagos suman 110%","The payments add up to 110%"],
+  p:["La forma de pago dice: anticipo del 50%, actas parciales por el 50% y un saldo final del 10% \"restante\". Eso suma 110% del valor del contrato.",
+     "The payment terms say: 50% advance, partial payments for 50%, and a \"remaining\" final 10%. That adds up to 110% of the contract value."],
+  q:["¿Cuál es la forma de pago real? ¿Se retiene el 10% de las actas?","What are the real payment terms? Is 10% held back from the progress payments?"]},
+ {t:["Un anticipo de $1.400 millones","An advance of 1,400 million pesos"],
+  p:["El contrato permite girar la mitad del valor como anticipo. La invitación exigía para eso un encargo fiduciario o patrimonio autónomo y un plan de inversión del anticipo aprobado por la interventoría. La póliza asegura el buen manejo de $1.400.933.508,50.",
+     "The contract allows half the value to be paid up front. The invitation required a trust account and an advance investment plan approved by the oversight firm. The bond covers proper handling of COP 1,400,933,508.50."],
+  q:["¿Ya se giró el anticipo? ¿En qué fiducia está y cuál es el plan de inversión aprobado?","Has the advance been paid? Which trust holds it, and what is the approved investment plan?"]},
+ {t:["Los planos y el presupuesto detallado no están publicados","The plans and itemized budget are not published"],
+  p:["La invitación dice que los diseños, planos y especificaciones \"podrán ser consultados en las oficinas de la EDUAN\", en Andes, al otro lado del departamento. En el SECOP solo aparece un ítem genérico con cantidad 1 y precio de $1.",
+     "The invitation says the designs, plans and specifications \"may be consulted at EDUAN's offices\" in Andes, on the other side of the department. SECOP only shows one generic line item priced at $1."],
+  q:["¿Pueden publicar en el SECOP el presupuesto con ítems y cantidades, los planos y el cronograma de obra?","Can they publish the itemized budget, the plans and the work schedule on SECOP?"]}
+];
+
+/* ===== Lo que se debe ver en la obra (obligaciones del contrato) ===== */
+const CHECK = [
+ {id:"valla", es:["Valla informativa de la obra","Debe reconocer el aporte del Municipio de Caucasia (obligación 38)."], en:["Information billboard at the site","It must credit the Municipality of Caucasia (obligation 38)."]},
+ {id:"senal", es:["Señalización y cerramiento","A cargo del contratista, para proteger a quienes pasan (obligación 29)."], en:["Signs and fencing","Paid by the contractor to protect passers-by (obligation 29)."]},
+ {id:"epp", es:["Trabajadores con casco, chaleco y botas","Elementos de protección personal (obligaciones 9 y 20)."], en:["Workers with helmets, vests and boots","Personal protective equipment (obligations 9 and 20)."]},
+ {id:"escombro", es:["Escombros recogidos, no regados en la calle","Se deben llevar a sitios aprobados por el interventor (obligación 10)."], en:["Debris removed, not dumped on the street","Must go to sites approved by the oversight firm (obligation 10)."]},
+ {id:"vigila", es:["Vigilancia de la obra día y noche","El contratista responde por la seguridad las 24 horas (obligación 23)."], en:["Site security day and night","The contractor is responsible 24 hours a day (obligation 23)."]},
+ {id:"local", es:["Gente de Caucasia trabajando en la obra","El contrato pide promover el empleo local."], en:["Local people working at the site","The contract asks for local hiring."]},
+ {id:"inter", es:["Interventor o residente visible en la obra","Debe firmar una bitácora diaria con el residente (obligación 11)."], en:["Oversight engineer or resident on site","Must sign a daily log with the resident engineer (obligation 11)."]}
+];
+const QUE_VIO = [["trabajando","Estaban trabajando","Work in progress"],["parada","Obra parada, sin trabajadores","Site stopped, no workers"],["valla","Ya pusieron la valla","Billboard installed"],["avance","Avance visible","Visible progress"],["riesgo","Peligro para la gente","Danger for passers-by"],["otro","Otra cosa","Something else"]];
+
+/* ===== Petición ===== */
+const PUNTOS = [
+ {id:"items", es:"Presupuesto oficial con ítems, cantidades y precios unitarios (APU), y los planos del parque.", en:"Itemized budget with quantities and unit prices, and the park plans."},
+ {id:"crono", es:"Cronograma de obra aprobado y porcentaje de avance físico y financiero a la fecha.", en:"Approved work schedule and current physical and financial progress."},
+ {id:"ofertas", es:"Ofertas recibidas en la Invitación 077-2026, informe de evaluación, adendas y acto de adjudicación, y explicación de por qué el contrato se firmó el 14 de octubre si el cronograma fijaba la adjudicación para el 29 de octubre.", en:"Bids received, evaluation report, addenda and award, and why the contract was signed on October 14 when the schedule set the award for October 29."},
+ {id:"anticipo", es:"Si ya se giró el anticipo, su valor, la fiducia o patrimonio autónomo donde se maneja y el plan de inversión aprobado por la interventoría.", en:"Whether the advance was paid, its amount, the trust that holds it and the approved investment plan."},
+ {id:"aclara", es:"Aclaración del parágrafo de la cláusula primera y de la cláusula trigésima segunda del contrato, que hablan de pavimento y de la red vial terciaria, y de la forma de pago que suma 110%.", en:"Clarification of contract clauses that mention pavement and rural roads, and of the payment terms that add up to 110%."},
+ {id:"informes", es:"Copia de los informes mensuales de interventoría y de la bitácora de obra.", en:"Copies of the monthly oversight reports and the site log."}
+];
+
+/* ===== Estado ===== */
+let NOTICIAS = [], FOTOS = [], SECOP = null, SECOP_VIVO = null, ACT = null;
+const leer = (k,d)=>{ try{ const v=localStorage.getItem(k); return v?JSON.parse(v):d; }catch(e){ return d; } };
+const guardar = (k,v)=>{ try{ localStorage.setItem(k,JSON.stringify(v)); return true; }catch(e){ return false; } };
+const esc = s => String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+function aviso(t){ const a=document.getElementById("aviso"); a.textContent=t; a.classList.add("ver"); clearTimeout(aviso._t); aviso._t=setTimeout(()=>a.classList.remove("ver"),2600); }
+
+/* ===== Plazo ===== */
+function plazo(){
+  const hoy = hoyBogota();
+  const dia = diasEntre(C.inicio,hoy)+1;
+  const faltan = diasEntre(hoy,C.fin);
+  return {hoy, dia, faltan, pct:Math.max(0,Math.min(100,(dia/C.totalDias)*100))};
+}
+
+function pintarValla(){
+  const p = plazo();
+  const dia = document.getElementById("metroDia"), txt=document.getElementById("metroTexto");
+  if(p.dia<1){ dia.textContent=L("Antes de iniciar","Not started"); txt.textContent=""; }
+  else if(p.faltan<0){ dia.textContent=L(`Vencido hace ${-p.faltan} días`,`Overdue by ${-p.faltan} days`); txt.textContent=L("El plazo de 4 meses ya terminó. ¿Entregaron?","The 4-month term is over. Was it delivered?"); }
+  else { dia.textContent=L(`Día ${p.dia} de ${C.totalDias}`,`Day ${p.dia} of ${C.totalDias}`); txt.textContent=L(`Va el ${p.pct.toFixed(0)}% del tiempo`,`${p.pct.toFixed(0)}% of the time has passed`); }
+  document.getElementById("regla").setAttribute("aria-label", dia.textContent);
+  const meses=[["2026-10-15","oct"],["2026-11-01","nov"],["2026-12-01",L("dic","dec")],["2027-01-01",L("ene","jan")],["2027-02-01","feb"]];
+  const m=document.getElementById("reglaMeses"); m.innerHTML="";
+  meses.forEach((x,i)=>{ const ini=diasEntre(C.inicio,x[0]); const finM=i<meses.length-1?diasEntre(C.inicio,meses[i+1][0]):C.totalDias; const s=document.createElement("span"); s.style.width=((finM-ini)/C.totalDias*100)+"%"; s.textContent=x[1]; m.appendChild(s); });
+  requestAnimationFrame(()=>{ document.getElementById("reglaLleno").style.width=p.pct+"%"; document.getElementById("reglaHoy").style.left="calc("+p.pct+"% - 1px)"; });
+}
+
+function pintarCinta(){
+  const p = plazo();
+  const frases = [
+    L(`OBRA EN EJECUCIÓN <b>día ${Math.max(p.dia,0)} de ${C.totalDias}</b>`,`WORKS UNDER WAY <b>day ${Math.max(p.dia,0)} of ${C.totalDias}</b>`),
+    L(`Faltan <b>${Math.max(p.faltan,0)} días</b> para la entrega`,`<b>${Math.max(p.faltan,0)} days</b> to delivery`),
+    L(`Valor <b>$2.801.867.017</b> de regalías`,`Value <b>COP 2,801,867,017</b> in royalties`),
+    L(`Contratista <b>M&amp;L Concretos y Diseños</b>`,`Contractor <b>M&amp;L Concretos y Diseños</b>`),
+    L(`Interventoría <b>CONSUIDEA S.A.S.</b>`,`Oversight <b>CONSUIDEA S.A.S.</b>`),
+    NOTICIAS.length ? L(`<b>${NOTICIAS.length}</b> noticias en seguimiento`,`<b>${NOTICIAS.length}</b> news items tracked`) : L("Barrio <b>El Triángulo</b>, Caucasia","<b>El Triángulo</b> neighborhood, Caucasia")
+  ];
+  const linea = frases.map(f=>`<span>${f}</span>`).join("");
+  document.getElementById("pista").innerHTML = linea + linea;
+}
+
+/* ===== Hoy ===== */
+const PREGUNTAS = [
+ ["¿Ya hay valla en la obra? Si no, anótelo en su bitácora.","Is the billboard up yet? If not, log it."],
+ ["¿Cuántos trabajadores vio hoy en El Triángulo?","How many workers did you see at El Triángulo today?"],
+ ["¿Sabe qué va a tener el parque? Nadie lo ha publicado: pídalo.","Do you know what the park will have? Nobody has published it: ask for it."],
+ ["¿Ya se giró el anticipo de $1.400 millones?","Has the 1,400 million peso advance been paid?"],
+ ["¿Conoce a alguien del barrio trabajando en la obra?","Do you know anyone from the neighborhood working there?"],
+ ["¿Dónde están dejando los escombros?","Where is the debris being dumped?"],
+ ["¿Alguien de la interventoría ha pasado por la obra esta semana?","Has anyone from the oversight firm visited this week?"]
+];
+function pintarHoy(){
+  const p = plazo();
+  document.getElementById("hoyFecha").textContent = L("Hoy es ","Today is ") + fechaLarga(p.hoy) + L(" (hora de Colombia).", " (Colombia time).");
+  const f = document.getElementById("faltan"), ft=document.getElementById("faltanTxt");
+  if(p.faltan>=0){ f.textContent = p.faltan; ft.textContent = L(`días para que se venza el plazo (14 de febrero de 2027). Debería ir cerca del ${p.pct.toFixed(0)}% de la obra.`,`days until the term ends (February 14, 2027). The works should be near ${p.pct.toFixed(0)}% done.`); }
+  else { f.textContent = -p.faltan; ft.textContent = L("días de retraso sobre el plazo pactado, si no hubo prórroga.","days past the agreed term, unless extended."); }
+  const prox = TIEMPO.filter(x=>x.f>=p.hoy).slice(0,2);
+  document.getElementById("hitos").innerHTML = prox.map(x=>{ const d=diasEntre(p.hoy,x.f); const cu = d===0?L("Hoy","Today"):d===1?L("Mañana","Tomorrow"):L(`En ${d} días`,`In ${d} days`); return `<div class="hito"><strong>${cu}: ${fechaLarga(x.f)}</strong>${esc(L(x.es,x.en))}</div>`; }).join("");
+  const n = dUTC(p.hoy)/864e5 % PREGUNTAS.length;
+  document.getElementById("preguntaDia").innerHTML = `<b>${L("Pregunta del día","Question of the day")}:</b> ${esc(L(...PREGUNTAS[n]))}`;
+  const nuevas = NOTICIAS.filter(x=>esHoy(x.fecha)).length;
+  const nh = document.getElementById("notasHoy");
+  nh.className = "vivo " + (NOTICIAS.length? "ok":"");
+  nh.textContent = NOTICIAS.length ? L(`${nuevas} noticia(s) nueva(s) hoy, ${NOTICIAS.length} en total`,`${nuevas} new item(s) today, ${NOTICIAS.length} total`) : L("Sin noticias todavía","No news yet");
+}
+function esHoy(f){ if(!f) return false; const d=new Date(f); if(isNaN(d)) return false; return new Intl.DateTimeFormat("en-CA",{timeZone:"America/Bogota"}).format(d)===hoyBogota(); }
+
+/* ===== SECOP en vivo (datos.gov.co) ===== */
+async function socrata(ds,q){
+  const u = `https://www.datos.gov.co/resource/${ds}.json?$q=${encodeURIComponent(q)}&$limit=50`;
+  const r = await fetch(u,{cache:"no-store"}); if(!r.ok) throw new Error(r.status);
+  return r.json();
+}
+const coincide = o => { const s = JSON.stringify(o).toUpperCase(); return s.includes("CAUCASIA") && (s.includes("TRIANGULO")||s.includes("TRIÁNGULO")) && s.includes("PARQUE"); };
+async function secopVivo(){
+  try{
+    const [cs,ps] = await Promise.all([
+      socrata("jbjy-vk9h","PARQUE LINEAL TRIANGULO").catch(()=>[]),
+      socrata("p6dx-8zbt","PARQUE LINEAL TRIANGULO").catch(()=>[])
+    ]);
+    const c = cs.filter(coincide), p = ps.filter(coincide);
+    if(c.length||p.length){ SECOP_VIVO = {contrato:c[0]||null, proceso:p[0]||null, hora:new Date().toISOString()}; return true; }
+  }catch(e){}
+  return false;
+}
+function campo(o,...ks){ if(!o) return null; for(const k of ks){ if(o[k]!=null && o[k]!=="") return typeof o[k]==="object"? (o[k].url||JSON.stringify(o[k])) : o[k]; } return null; }
+function pintarSecop(){
+  const est = document.getElementById("secopEstado"), tb=document.getElementById("secopTabla");
+  const fuente = SECOP_VIVO || SECOP;
+  if(!fuente || (!fuente.contrato && !fuente.proceso)){
+    est.className="vivo"; est.textContent=L("El contrato aún no aparece en los datos abiertos del SECOP","The contract is not in SECOP open data yet");
+    tb.innerHTML = `<tr><td>${L("Última fase vista","Last phase seen")}</td><td>${L("Presentación de oferta (28 oct 2026)","Bid submission (Oct 28, 2026)")}</td></tr><tr><td>${L("Contrato en PDF","Contract PDF")}</td><td>${L("Firmado el 14 oct 2026","Signed Oct 14, 2026")}</td></tr><tr><td>${L("Ver en SECOP","See on SECOP")}</td><td><a href="${C.secopUrl}" target="_blank" rel="noopener">CO1.NTC.11089876</a></td></tr>`;
+    return;
+  }
+  est.className="vivo ok"; est.textContent = (SECOP_VIVO?L("SECOP en vivo","SECOP live"):L("SECOP (robot)","SECOP (robot)")) + " · " + horaBogota(new Date(fuente.hora||Date.now()));
+  const c=fuente.contrato, p=fuente.proceso; const filas=[];
+  const add=(a,b,v)=>{ if(v!=null) filas.push(`<tr><td>${L(a,b)}</td><td>${esc(v)}</td></tr>`); };
+  add("Estado del contrato","Contract status",campo(c,"estado_contrato"));
+  add("Fase del proceso","Process phase",campo(p,"fase","estado_del_procedimiento"));
+  add("Proveedor","Supplier",campo(c,"proveedor_adjudicado")||campo(p,"nombre_del_proveedor"));
+  const num=(v)=> v!=null && !isNaN(+v) ? pesos(+v) : null;
+  add("Valor del contrato","Contract value",num(campo(c,"valor_del_contrato")));
+  add("Valor pagado","Amount paid",num(campo(c,"valor_pagado")));
+  add("Valor facturado","Amount invoiced",num(campo(c,"valor_facturado")));
+  add("Días adicionados","Days added",campo(c,"dias_adicionados"));
+  const ff = campo(c,"fecha_de_fin_del_contrato"); if(ff) add("Fecha fin en SECOP","End date in SECOP",fechaLarga(ff.slice(0,10)));
+  tb.innerHTML = filas.join("") || `<tr><td colspan="2">${L("Registro encontrado sin datos de avance.","Record found without progress data.")}</td></tr>`;
+}
+
+/* ===== Contrato ===== */
+function pintarContrato(){
+  const docs=[["img/contrato.jpg","Contrato de obra 041 de 2026","Works contract 041 of 2026"],["img/acta-inicio.jpg","Acta de inicio, 15 de octubre","Start certificate, October 15"],["img/invitacion-cronograma.jpg","Cronograma de la invitación 077","Invitation 077 schedule"],["img/poliza-cumplimiento.jpg","Póliza de cumplimiento","Performance bond"]];
+  document.getElementById("docs").innerHTML = docs.map(d=>`<figure tabindex="0" data-src="${d[0]}"><img src="${d[0]}" alt="${esc(L(d[1],d[2]))}" loading="lazy"><figcaption>${esc(L(d[1],d[2]))}</figcaption></figure>`).join("");
+  document.getElementById("fichaPartes").innerHTML = `
+   <h3 style="margin:0 0 8px">${L("Quién es quién","Who is who")}</h3>
+   <table class="secop-tabla">
+    <tr><td>${L("Contrata","Contracting entity")}</td><td>Empresa de Desarrollo Urbano de Andes (EDUAN), NIT 901.848.014-1. ${L("Gerente","Manager")}: Esteban Espinal Chavarría</td></tr>
+    <tr><td>${L("Contratista","Contractor")}</td><td>M&amp;L Concretos y Diseños S.A.S., NIT 901.788.317-1, ${L("con domicilio en Caucasia","based in Caucasia")}. ${L("Representante","Legal rep.")}: Hernán de Jesús Díaz Rodríguez</td></tr>
+    <tr><td>${L("Interventoría","Oversight")}</td><td>CONSUIDEA S.A.S., NIT 900.971.794-1. ${L("Representante","Legal rep.")}: Luis Emilio Ramírez Jaramillo</td></tr>
+    <tr><td>${L("Dueño del proyecto","Project owner")}</td><td>${L("Municipio de Caucasia (proyecto ID 1817596, sector Deporte y Recreación)","Municipality of Caucasia (project ID 1817596, Sports and Recreation)")}</td></tr>
+    <tr><td>${L("Contacto EDUAN","EDUAN contact")}</td><td>contratacion@eduan.gov.co<br>313 752 6437</td></tr>
+   </table>`;
+  document.getElementById("fichaPolizas").innerHTML = `
+   <h3 style="margin:0 0 8px">${L("Las pólizas (Aseguradora Solidaria)","The bonds (Aseguradora Solidaria)")}</h3>
+   <table class="secop-tabla">
+    <tr><td>${L("Cumplimiento","Performance")}</td><td>$560.373.403 ${L("hasta el 14 jun 2027","until Jun 14, 2027")}</td></tr>
+    <tr><td>${L("Buen manejo del anticipo","Advance handling")}</td><td>$1.400.933.509 ${L("hasta el 14 jun 2027","until Jun 14, 2027")}</td></tr>
+    <tr><td>${L("Salarios y prestaciones","Wages and benefits")}</td><td>$560.373.403 ${L("hasta el 14 feb 2030","until Feb 14, 2030")}</td></tr>
+    <tr><td>${L("Estabilidad de la obra","Stability of the works")}</td><td>$560.373.403 ${L("por 5 años desde el recibo final","for 5 years after final acceptance")}</td></tr>
+    <tr><td>${L("Daños a terceros","Third-party liability")}</td><td>$700.362.000 ${L("durante la obra","during the works")}</td></tr>
+   </table>
+   <p style="font-size:14px;color:var(--gris);margin:10px 0 0">${L("Si la obra se daña en los 5 años siguientes a la entrega, la póliza de estabilidad responde. Guarde esta información.","If the works fail within 5 years of handover, the stability bond pays. Keep this information.")}</p>`;
+  const hoy=hoyBogota(); let marcado=false;
+  document.getElementById("tiempo").innerHTML = TIEMPO.map(x=>{ let cls = x.f<=hoy ? (x.ojo?"ojo":"paso") : ""; if(!marcado && x.f>hoy){ cls="ahora"; marcado=true; } return `<li class="${cls}"><time datetime="${x.f}">${fechaLarga(x.f)}</time><p>${esc(L(x.es,x.en))}</p></li>`; }).join("");
+  document.getElementById("porDia").textContent = pesos(C.valor/C.totalDias);
+}
+
+function pintarAlertas(){
+  document.getElementById("alertas").innerHTML = ALERTAS.map(a=>`<article class="alerta"><h3>${esc(L(...a.t))}</h3><p>${esc(L(...a.p))}</p>${a.cita&&LANG==="es"?`<blockquote>${esc(a.cita)}</blockquote>`:""}<p class="pregunta">${esc(L(...a.q))}</p></article>`).join("");
+}
+
+/* ===== Checklist y bitácora ===== */
+function pintarCheck(){
+  const est = leer("pl_check",{});
+  document.getElementById("checklist").innerHTML = CHECK.map(c=>{ const [a,b]=L(c.es,c.en); return `<label><input type="checkbox" data-id="${c.id}" ${est[c.id]?"checked":""}><span><b>${esc(a)}</b><small>${esc(b)}</small>${est[c.id]?`<small>${L("Visto el","Seen on")} ${esc(est[c.id])}</small>`:""}</span></label>`; }).join("");
+  document.querySelectorAll("#checklist input").forEach(i=>i.onchange=()=>{ const e=leer("pl_check",{}); if(i.checked) e[i.dataset.id]=fechaLarga(hoyBogota()); else delete e[i.dataset.id]; guardar("pl_check",e); pintarCheck(); });
+  const sel = document.getElementById("bQue"); const v=sel.value;
+  sel.innerHTML = QUE_VIO.map(q=>`<option value="${q[0]}">${esc(L(q[1],q[2]))}</option>`).join(""); if(v) sel.value=v;
+  const bf=document.getElementById("bFecha"); if(!bf.value) bf.value=hoyBogota();
+  pintarBitacora();
+}
+function pintarBitacora(){
+  const lista = leer("pl_bitacora",[]);
+  const el = document.getElementById("bLista");
+  if(!lista.length){ el.innerHTML = `<div class="vacio">${L("Su bitácora está vacía. Pase por la obra y anote lo primero que vea.","Your log is empty. Walk by the site and note the first thing you see.")}</div>`; return; }
+  el.innerHTML = lista.map((x,i)=>{ const q=QUE_VIO.find(q=>q[0]===x.que)||QUE_VIO[5]; return `<div class="entrada">${x.foto?`<img src="${x.foto}" alt="">`:`<div class="sinfoto"></div>`}<div><b>${esc(fechaLarga(x.fecha))}: ${esc(L(q[1],q[2]))}</b><div>${esc(x.nota)}</div><div class="fila" style="margin-top:6px"><a class="btn" style="text-decoration:none;font-size:13px;padding:4px 10px" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(L("Obra Parque Lineal El Triángulo (Caucasia)","Linear Park works, El Triángulo (Caucasia)")+" – "+fechaLarga(x.fecha)+": "+L(q[1],q[2])+". "+x.nota+"\n"+location.href.split("#")[0])}">WhatsApp</a><button class="btn" style="font-size:13px;padding:4px 10px" data-borrar="${i}">${L("Borrar","Delete")}</button></div></div></div>`; }).join("");
+  el.querySelectorAll("[data-borrar]").forEach(b=>b.onclick=()=>{ const l=leer("pl_bitacora",[]); l.splice(+b.dataset.borrar,1); guardar("pl_bitacora",l); pintarBitacora(); });
+}
+function achicar(file){
+  return new Promise(res=>{ if(!file) return res(null); const r=new FileReader(); r.onload=()=>{ const im=new Image(); im.onload=()=>{ const m=640, k=Math.min(1,m/Math.max(im.width,im.height)); const cv=document.createElement("canvas"); cv.width=im.width*k; cv.height=im.height*k; cv.getContext("2d").drawImage(im,0,0,cv.width,cv.height); res(cv.toDataURL("image/jpeg",.7)); }; im.onerror=()=>res(null); im.src=r.result; }; r.readAsDataURL(file); });
+}
+document.getElementById("formBitacora").onsubmit = async e=>{
+  e.preventDefault();
+  const foto = await achicar(document.getElementById("bFoto").files[0]);
+  const l = leer("pl_bitacora",[]);
+  l.unshift({fecha:document.getElementById("bFecha").value, que:document.getElementById("bQue").value, nota:document.getElementById("bNota").value.trim(), foto});
+  if(guardar("pl_bitacora",l)){ aviso(L("Guardado en su bitácora","Saved to your log")); e.target.reset(); document.getElementById("bFecha").value=hoyBogota(); pintarBitacora(); }
+  else aviso(L("No se pudo guardar: el celular no tiene espacio para la foto. Pruebe sin foto.","Could not save: no room for the photo. Try without it."));
+};
+
+/* ===== Galería ===== */
+function pintarGaleria(){
+  const g = document.getElementById("galeria");
+  if(FOTOS.length){ g.innerHTML = FOTOS.map(f=>`<figure><img src="${esc(f.src)}" alt="${esc(f.nota||"")}" loading="lazy"><figcaption>${esc(f.fecha?fechaLarga(f.fecha)+": ":"")}${esc(L(f.nota||"",f.note||f.nota||""))}</figcaption></figure>`).join(""); return; }
+  g.innerHTML = `<div class="vacio" style="grid-column:1/-1">${L("Aún no hay fotos publicadas de la obra. Cuando pase por El Triángulo, tome fotos y mándelas a Vibras Positivas HM para publicarlas aquí.","No photos of the works have been published yet. When you pass by El Triángulo, take photos and send them to Vibras Positivas HM to publish here.")}</div>`;
+}
+
+/* ===== Petición ===== */
+function pintarPeticion(){
+  const sel = leer("pl_puntos", PUNTOS.map(p=>p.id));
+  document.getElementById("pPuntos").innerHTML = PUNTOS.map(p=>`<label><input type="checkbox" data-id="${p.id}" ${sel.includes(p.id)?"checked":""}><span>${esc(L(p.es,p.en))}</span></label>`).join("");
+  document.querySelectorAll("#pPuntos input").forEach(i=>i.onchange=()=>{ guardar("pl_puntos",[...document.querySelectorAll("#pPuntos input:checked")].map(x=>x.dataset.id)); armarCarta(); });
+  ["pNombre","pCedula","pBarrio","pCorreo"].forEach(id=>{ const el=document.getElementById(id); const v=leer("pl_"+id,""); if(v && !el.value) el.value=v; el.oninput=()=>{ guardar("pl_"+id,el.value); armarCarta(); }; });
+  armarCarta();
+}
+function armarCarta(){
+  const v = id => document.getElementById(id).value.trim();
+  const sel = [...document.querySelectorAll("#pPuntos input:checked")].map(x=>PUNTOS.find(p=>p.id===x.dataset.id));
+  const nombre=v("pNombre")||"[SU NOMBRE]", cc=v("pCedula")||"[CÉDULA]", barrio=v("pBarrio")||"[BARRIO O DIRECCIÓN]", correo=v("pCorreo")||"[SU CORREO]";
+  const txt =
+`Caucasia, ${fechaLarga(hoyBogota()).replace(/^(\d+) de /,"$1 de ")}
+
+Señores
+EMPRESA DE DESARROLLO URBANO DE ANDES – EDUAN
+Gerencia General y Oficina de Contratación
+contratacion@eduan.gov.co – gestiondocumental@eduan.gov.co
+Andes, Antioquia
+
+Asunto: Derecho de petición de información – Contrato de obra No. 041 de 2026 (Invitación Pública 077-2026), Parque Lineal barrio El Triángulo, segunda etapa, Caucasia.
+
+Yo, ${nombre}, identificado(a) con cédula de ciudadanía No. ${cc}, residente en ${barrio}, Caucasia, en ejercicio del derecho fundamental de petición (artículo 23 de la Constitución Política y Ley 1755 de 2015) y del control social a la gestión pública (Ley 850 de 2003 y Ley 1757 de 2015), respetuosamente solicito la siguiente información sobre el contrato de obra No. 041 de 2026, suscrito el 14 de octubre de 2026 con M&L CONCRETOS Y DISEÑOS S.A.S. (NIT 901.788.317-1) por valor de $2.801.867.017, financiado con recursos del Sistema General de Regalías (proyecto ID 1817596):
+
+${sel.length? sel.map((p,i)=>`${i+1}. ${p.es}`).join("\n"):"1. [Elija al menos un punto]"}
+
+Solicito que la información sea entregada en medio digital al correo ${correo}, dentro del término de diez (10) días hábiles previsto en el artículo 14 de la Ley 1437 de 2011, sustituido por la Ley 1755 de 2015, para las peticiones de documentos e información. Si alguno de los documentos no está en poder de EDUAN, solicito dar traslado a la entidad competente e informarme.
+
+Atentamente,
+
+${nombre}
+C.C. ${cc}
+${correo}`;
+  document.getElementById("carta").textContent = txt;
+  const asunto = "Derecho de petición – Contrato de obra 041 de 2026, Parque Lineal El Triángulo, Caucasia";
+  document.getElementById("pCorreoBtn").href = `mailto:${C.correos[0]}?cc=${C.correos[1]}&subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(txt)}`;
+  document.getElementById("pWhats").href = `https://wa.me/?text=${encodeURIComponent(L("Pidamos la información del Parque Lineal de El Triángulo. Cada uno puede mandar su derecho de petición desde aquí: ","Let's request the information on the El Triángulo Linear Park. Everyone can send their own petition from here: ")+location.href.split("#")[0]+"#peticion")}`;
+}
+document.getElementById("pCopiar").onclick = async ()=>{
+  try{ await navigator.clipboard.writeText(document.getElementById("carta").textContent); aviso(L("Carta copiada","Letter copied")); }
+  catch(e){ const r=document.createRange(); r.selectNodeContents(document.getElementById("carta")); const s=getSelection(); s.removeAllRanges(); s.addRange(r); aviso(L("Seleccionada: use Copiar","Selected: use Copy")); }
+};
+
+/* ===== Noticias ===== */
+function pintarNoticias(){
+  const q = (document.getElementById("buscar").value||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"");
+  const lista = NOTICIAS.filter(n=>!q || (n.titulo+" "+(n.fuente||"")+" "+(n.resumen||"")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").includes(q));
+  const b = document.getElementById("noticiasBajada");
+  b.textContent = ACT ? L(`Un robot busca noticias reales cada 30 minutos. Última búsqueda: ${horaBogota(new Date(ACT))}.`,`A robot searches for real news every 30 minutes. Last search: ${horaBogota(new Date(ACT))}.`) : L("Un robot busca noticias reales cada 30 minutos.","A robot searches for real news every 30 minutes.");
+  const el = document.getElementById("listaNoticias");
+  if(!lista.length){ el.innerHTML = `<div class="vacio" style="grid-column:1/-1">${q?L("Ninguna noticia tiene esas palabras. Pruebe con Caucasia o EDUAN.","No news matches. Try Caucasia or EDUAN."):L("Todavía no hay noticias publicadas sobre esta obra. El robot sigue buscando; si usted ve algo en redes, compártalo.","No news about these works yet. The robot keeps searching; if you see something on social media, share it.")}</div>`; return; }
+  el.innerHTML = lista.slice(0,40).map(n=>`<a class="nota" href="${esc(n.url)}" target="_blank" rel="noopener">${n.imagen?`<img src="${esc(n.imagen)}" alt="" loading="lazy" onerror="this.outerHTML='<span class=sinfoto></span>'">`:`<span class="sinfoto"></span>`}<div>${esHoy(n.fecha)?`<span class="nueva">${L("Hoy","Today")}</span>`:""}<b>${esc(n.titulo)}</b><small>${esc(n.fuente||"")}${n.fecha?" – "+esc(horaBogota(new Date(n.fecha))):""}</small></div></a>`).join("");
+}
+document.getElementById("buscar").oninput = pintarNoticias;
+
+/* ===== Visor de documentos ===== */
+document.addEventListener("click",e=>{ const f=e.target.closest(".docs figure"); if(f){ document.getElementById("visorImg").src=f.dataset.src; document.getElementById("visor").showModal(); } });
+document.addEventListener("keydown",e=>{ const f=e.target.closest&&e.target.closest(".docs figure"); if(f && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); f.click(); } });
+document.querySelector("#visor .cerrar").onclick=()=>document.getElementById("visor").close();
+
+/* ===== Pestañas ===== */
+const secciones=[...document.querySelectorAll("section")];
+const tabs=[...document.querySelectorAll("nav.tabs a")];
+const io = new IntersectionObserver(es=>{ es.forEach(en=>{ if(en.isIntersecting){ tabs.forEach(t=>{ const a=t.getAttribute("href")==="#"+en.target.id; t.classList.toggle("activo",a); if(a){ const bar=t.parentElement; bar.scrollTo({left:t.offsetLeft-bar.clientWidth/2+t.clientWidth/2,behavior:"smooth"}); } }); } }); },{rootMargin:"-45% 0px -50% 0px"});
+secciones.forEach(s=>io.observe(s));
+
+/* ===== Cargar datos ===== */
+async function json(u){ const r = await fetch(u+"?t="+Date.now(),{cache:"no-store"}); if(!r.ok) throw new Error(r.status); return r.json(); }
+async function cargar(manual){
+  const btn=document.getElementById("btnActualizar"); btn.disabled=true; btn.textContent=L("Buscando…","Searching…");
+  const [n,s,f] = await Promise.allSettled([json("data/noticias.json"),json("data/secop.json"),json("data/fotos.json")]);
+  if(n.status==="fulfilled"){ NOTICIAS=(n.value.noticias||[]).sort((a,b)=>new Date(b.fecha||0)-new Date(a.fecha||0)); ACT=n.value.actualizado||null; }
+  if(s.status==="fulfilled") SECOP=s.value;
+  if(f.status==="fulfilled") FOTOS=f.value.fotos||[];
+  await secopVivo();
+  pintarTodo();
+  btn.disabled=false; btn.textContent=L("Actualizar","Refresh");
+  document.getElementById("pieAct").textContent = L("Revisado: ","Checked: ")+horaBogota(new Date());
+  if(manual) aviso(L("Todo al día","Up to date"));
+}
+document.getElementById("btnActualizar").onclick=()=>cargar(true);
+
+function pintarTodo(){ pintarValla(); pintarCinta(); pintarHoy(); pintarSecop(); pintarContrato(); pintarAlertas(); pintarCheck(); pintarGaleria(); pintarPeticion(); pintarNoticias(); }
+
+aplicarIdioma();
+cargar(false);
+document.addEventListener("visibilitychange",()=>{ if(document.visibilityState==="visible") cargar(false); });
+if("serviceWorker" in navigator) navigator.serviceWorker.register("sw.js").catch(()=>{});
+</script>
+</body>
+</html>

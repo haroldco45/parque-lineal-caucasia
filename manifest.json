@@ -1,0 +1,15 @@
+{
+  "name": "Ojo al Parque Lineal — Caucasia",
+  "short_name": "Parque Lineal",
+  "description": "Seguimiento ciudadano a la obra del Parque Lineal del barrio El Triángulo, Caucasia.",
+  "lang": "es-CO",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#E4E5E1",
+  "theme_color": "#1E6B4A",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
