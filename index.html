@@ -271,11 +271,11 @@ nav.tabs a.activo{color:#fff;border-top-color:var(--amarillo)}
   </div>
 
 
-  <!-- Fotos reales de Caucasia -->
+  <!-- Fotos reales de la obra, tomadas por Vibras Positivas HM -->
   <div class="fotos-caucasia">
-    <figure class="f-grande"><img src="https://www.semana.com/resizer/v2/OZBP56YSPZGYBNVAJWKK6BLFOY.jpg?auth=5c45d176eb128dc47f0edf39ffbf047883835d0ffb8f082744ea5d5c5dea9410&amp;smart=true&amp;quality=75&amp;width=1280&amp;height=720" alt="Vista de Caucasia" loading="eager" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto1">Caucasia, capital del Bajo Cauca. Aquí queda El Triángulo.</span> Foto: León Darío Peláez / Semana</figcaption></figure>
-    <figure><img src="https://www.semana.com/resizer/v2/J35PP5PW6NED7LUKAQB7UGKVXQ.jpg?auth=021201355bcf857dcb34deb328184da8a653a19e1d43e3863e27c70d3cb04915&amp;width=1280&amp;height=853" alt="Calle de Caucasia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto2">Las calles del centro.</span> Foto: León Darío Peláez / Semana</figcaption></figure>
-    <figure><img src="https://www.semana.com/resizer/v2/VD2LUMNGXZESXJOA7P4TDJ64U4.jpg?auth=8907bec53bfaa9adda272f7a74aaad494adf2fa9242319725fd851a2047941d5&amp;width=1067&amp;height=600" alt="Río Cauca en Caucasia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto3">El río Cauca.</span> Foto: Alcaldía de Caucasia</figcaption></figure>
+    <figure class="f-grande"><img src="fotos/2026-10-28-1.jpg" alt="Árboles y lote del barrio El Triángulo, Caucasia" loading="eager"><figcaption><b data-t="foto1">Así está El Triángulo hoy: día 14 del plazo.</b> <span data-t="foto1b">En estas fotos no se ve valla de obra ni trabajadores.</span> Foto: Vibras Positivas HM, 28 oct 2026</figcaption></figure>
+    <figure><img src="fotos/2026-10-28-3.jpg" alt="Calle y franja verde de El Triángulo" loading="lazy"><figcaption><span data-t="foto2">La calle y la franja verde.</span> 28 oct 2026</figcaption></figure>
+    <figure><img src="fotos/2026-10-28-7.jpg" alt="Parque existente con árboles y bancas" loading="lazy"><figcaption><span data-t="foto3">El parque que ya existe.</span> 28 oct 2026</figcaption></figure>
   </div>
 
   <section id="hoy">
@@ -385,6 +385,7 @@ nav.tabs a.activo{color:#fff;border-top-color:var(--amarillo)}
     </div>
 
     <h2 style="margin-top:34px;font-size:28px" data-t="hFotos">Fotos de la obra</h2>
+    <p class="bajada" data-t="fotosBajada">Tomadas en El Triángulo. Volvemos cada semana para comparar cómo avanza.</p>
     <div class="galeria" id="galeria"></div>
   </section>
 
@@ -480,10 +481,10 @@ const T = {
   pDia:"If the money were spent evenly over the 123 days, each day of work is worth",
   hNoCuadra:"What doesn't add up", noCuadraBajada:"These are questions, not accusations. They come from reading the published documents; there may be addenda or clarifications on SECOP that answer them. That is what a right-of-petition request is for.",
   hOjo:"Watch the site", ojoBajada:"If you live in or pass through El Triángulo, this is what the contract requires at the site. Check what you see.",
-  videoNota:"The El Triángulo area on video (YouTube).", videoNota2:"Caucasia on video: YouTube playlist.", foto1:"Caucasia, capital of Bajo Cauca. El Triángulo is here.", foto2:"Downtown streets.", foto3:"The Cauca River.",
+  videoNota:"The El Triángulo area on video (YouTube).", videoNota2:"Caucasia on video: YouTube playlist.", foto1:"This is El Triángulo today: day 14 of the term.", foto1b:"No works billboard or workers can be seen in these photos.", foto2:"The street and the green strip.", foto3:"The park that already exists.",
   hBitacora:"My site log", bitacoraBajada:"Write down what you saw, with a photo. It is saved on your phone and you can send it on WhatsApp.",
   bFecha:"Date", bQue:"What you saw", bNota:"Details", bNotaPh:"E.g.: 6 workers with helmets, old paving removed on the north side.", bFoto:"Photo (optional)", bGuardar:"Save to my log",
-  hFotos:"Photos of the works",
+  hFotos:"Photos of the works", fotosBajada:"Taken at El Triángulo. We come back every week to compare progress.",
   hPeticion:"Request the information", peticionBajada:"A right-of-petition letter ready to send to EDUAN. By law they must answer within 10 business days when documents are requested (Law 1755 of 2015). The letter itself is in Spanish, as the entity requires.",
   pNombre:"Your full name", pCedula:"ID number (cédula)", pBarrio:"Neighborhood or address", pCorreo:"Email for the reply", pQuePide:"What you want to request",
   pCopiar:"Copy letter", pEnviar:"Send by email", pWhats:"Share on WhatsApp",
@@ -773,7 +774,7 @@ document.getElementById("formBitacora").onsubmit = async e=>{
 /* ===== Galería ===== */
 function pintarGaleria(){
   const g = document.getElementById("galeria");
-  if(FOTOS.length){ g.innerHTML = FOTOS.map(f=>`<figure><img src="${esc(f.src)}" alt="${esc(f.nota||"")}" loading="lazy"><figcaption>${esc(f.fecha?fechaLarga(f.fecha)+": ":"")}${esc(L(f.nota||"",f.note||f.nota||""))}</figcaption></figure>`).join(""); return; }
+  if(FOTOS.length){ g.innerHTML = FOTOS.map(f=>`<figure data-src="${esc(f.src)}" tabindex="0" style="cursor:zoom-in"><img src="${esc(f.src)}" alt="${esc(f.nota||"")}" loading="lazy"><figcaption>${esc(f.fecha?fechaLarga(f.fecha)+": ":"")}${esc(L(f.nota||"",f.note||f.nota||""))}</figcaption></figure>`).join(""); return; }
   g.innerHTML = `<div class="vacio" style="grid-column:1/-1">${L("Aún no hay fotos publicadas de la obra. Cuando pase por El Triángulo, tome fotos y mándelas a Vibras Positivas HM para publicarlas aquí.","No photos of the works have been published yet. When you pass by El Triángulo, take photos and send them to Vibras Positivas HM to publish here.")}</div>`;
 }
 
@@ -834,7 +835,7 @@ function pintarNoticias(){
 document.getElementById("buscar").oninput = pintarNoticias;
 
 /* ===== Visor de documentos ===== */
-document.addEventListener("click",e=>{ const f=e.target.closest(".docs figure"); if(f){ document.getElementById("visorImg").src=f.dataset.src; document.getElementById("visor").showModal(); } });
+document.addEventListener("click",e=>{ const f=e.target.closest(".docs figure, .galeria figure, .fotos-caucasia figure"); if(f && !f.dataset.src){ const im=f.querySelector("img"); if(im) f.dataset.src=im.getAttribute("src"); } if(f){ document.getElementById("visorImg").src=f.dataset.src; document.getElementById("visor").showModal(); } });
 document.addEventListener("keydown",e=>{ const f=e.target.closest&&e.target.closest(".docs figure"); if(f && (e.key==="Enter"||e.key===" ")){ e.preventDefault(); f.click(); } });
 document.querySelector("#visor .cerrar").onclick=()=>document.getElementById("visor").close();
 

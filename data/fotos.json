@@ -1,4 +1,12 @@
 {
-  "_como_agregar": "Suba las fotos a la carpeta fotos/ y agréguelas aquí, así: {\"src\":\"fotos/2026-11-02-valla.jpg\",\"fecha\":\"2026-11-02\",\"nota\":\"Ya instalaron la valla\",\"note\":\"The billboard is up\"}",
-  "fotos": []
+  "_como_agregar": "Suba las fotos a la carpeta fotos/ y agréguelas aquí arriba de la lista, así: {\"src\":\"fotos/2026-11-02-1.jpg\",\"fecha\":\"2026-11-02\",\"nota\":\"Ya instalaron la valla\",\"note\":\"The billboard is up\"}",
+  "fotos": [
+    {"src":"fotos/2026-10-28-1.jpg","fecha":"2026-10-28","nota":"Los árboles grandes y el lote del barrio El Triángulo. No se ve valla de obra.","note":"The big trees and the open lot in El Triángulo. No works billboard in sight."},
+    {"src":"fotos/2026-10-28-2.jpg","fecha":"2026-10-28","nota":"El lote con basura y escombros sueltos junto al andén.","note":"The lot with loose trash and debris next to the sidewalk."},
+    {"src":"fotos/2026-10-28-3.jpg","fecha":"2026-10-28","nota":"La calle y la franja verde con árboles.","note":"The street and the green strip with trees."},
+    {"src":"fotos/2026-10-28-4.jpg","fecha":"2026-10-28","nota":"Carros parqueados sobre la zona verde.","note":"Cars parked on the green area."},
+    {"src":"fotos/2026-10-28-5.jpg","fecha":"2026-10-28","nota":"El parque que ya existe, con juegos y bancas.","note":"The existing park, with play area and benches."},
+    {"src":"fotos/2026-10-28-6.jpg","fecha":"2026-10-28","nota":"Motos parqueadas en el andén del parque.","note":"Motorbikes parked on the park sidewalk."},
+    {"src":"fotos/2026-10-28-7.jpg","fecha":"2026-10-28","nota":"Senderos, árboles y bancas del parque.","note":"Paths, trees and benches in the park."}
+  ]
 }
