@@ -11,7 +11,13 @@
 <link rel="apple-touch-icon" href="icon-192.png">
 <meta property="og:title" content="Ojo al Parque Lineal — Caucasia">
 <meta property="og:description" content="$2.801 millones de regalías para el Parque Lineal de El Triángulo. Mire cómo va la obra, qué dice el contrato y qué preguntar.">
-<meta property="og:image" content="img/acta-inicio.jpg">
+<meta property="og:image" content="https://parque-lineal-en-caucasia.netlify.app/img/compartir.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://parque-lineal-en-caucasia.netlify.app/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://parque-lineal-en-caucasia.netlify.app/img/compartir.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap" rel="stylesheet">
@@ -164,6 +170,16 @@ dialog .cerrar{position:sticky;top:0;display:block;width:100%;border:0;backgroun
 .video{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:#000}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
+
+/* Fotos reales */
+.fotos-caucasia{display:grid;gap:8px;margin-top:10px;grid-template-columns:1fr 1fr}
+.fotos-caucasia figure{margin:0;position:relative;border-radius:6px;overflow:hidden;background:var(--linea)}
+.fotos-caucasia .f-grande{grid-column:1/-1}
+.fotos-caucasia img{width:100%;height:100%;object-fit:cover;aspect-ratio:16/9}
+.fotos-caucasia .f-grande img{aspect-ratio:21/9}
+.fotos-caucasia figcaption{position:absolute;left:0;right:0;bottom:0;padding:22px 12px 8px;color:#fff;font-size:13px;background:linear-gradient(transparent,rgba(0,0,0,.72))}
+@media(min-width:820px){.fotos-caucasia{grid-template-columns:2fr 1fr}.fotos-caucasia .f-grande{grid-column:auto;grid-row:span 2}.fotos-caucasia .f-grande img{aspect-ratio:auto}}
+.videos{display:grid;gap:12px;margin-top:12px}
 /* Ojo a la obra */
 .check{display:grid;gap:8px}
 .check label{display:flex;gap:12px;align-items:flex-start;background:var(--losa);border:1px solid var(--linea);border-radius:6px;padding:12px 14px;cursor:pointer}
@@ -254,6 +270,14 @@ nav.tabs a.activo{color:#fff;border-top-color:var(--amarillo)}
     </div>
   </div>
 
+
+  <!-- Fotos reales de Caucasia -->
+  <div class="fotos-caucasia">
+    <figure class="f-grande"><img src="https://www.semana.com/resizer/v2/OZBP56YSPZGYBNVAJWKK6BLFOY.jpg?auth=5c45d176eb128dc47f0edf39ffbf047883835d0ffb8f082744ea5d5c5dea9410&amp;smart=true&amp;quality=75&amp;width=1280&amp;height=720" alt="Vista de Caucasia" loading="eager" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto1">Caucasia, capital del Bajo Cauca. Aquí queda El Triángulo.</span> Foto: León Darío Peláez / Semana</figcaption></figure>
+    <figure><img src="https://www.semana.com/resizer/v2/J35PP5PW6NED7LUKAQB7UGKVXQ.jpg?auth=021201355bcf857dcb34deb328184da8a653a19e1d43e3863e27c70d3cb04915&amp;width=1280&amp;height=853" alt="Calle de Caucasia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto2">Las calles del centro.</span> Foto: León Darío Peláez / Semana</figcaption></figure>
+    <figure><img src="https://www.semana.com/resizer/v2/VD2LUMNGXZESXJOA7P4TDJ64U4.jpg?auth=8907bec53bfaa9adda272f7a74aaad494adf2fa9242319725fd851a2047941d5&amp;width=1067&amp;height=600" alt="Río Cauca en Caucasia" loading="lazy" referrerpolicy="no-referrer" onerror="this.closest('figure').remove()"><figcaption><span data-t="foto3">El río Cauca.</span> Foto: Alcaldía de Caucasia</figcaption></figure>
+  </div>
+
   <section id="hoy">
     <h2 data-t="hHoy">Hoy en la obra</h2>
     <p class="bajada" id="hoyFecha"></p>
@@ -330,10 +354,16 @@ nav.tabs a.activo{color:#fff;border-top-color:var(--amarillo)}
       <div class="check" id="checklist"></div>
       <div>
         <iframe class="mapa" loading="lazy" title="Mapa El Triángulo, Caucasia" src="https://www.google.com/maps?q=Barrio+El+Tri%C3%A1ngulo,+Caucasia,+Antioquia&t=k&z=16&output=embed"></iframe>
-        <div class="video" style="margin-top:12px">
-          <iframe loading="lazy" title="Video del sector El Triángulo" src="https://www.youtube-nocookie.com/embed/aDzVLl9D_i0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+        <div class="videos">
+          <div>
+            <div class="video"><iframe loading="lazy" title="Video del sector El Triángulo, Caucasia" src="https://www.youtube-nocookie.com/embed/aDzVLl9D_i0" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+            <p style="font-size:14px;color:var(--gris);margin:6px 0 0" data-t="videoNota">El sector de El Triángulo en video (YouTube).</p>
+          </div>
+          <div>
+            <div class="video"><iframe loading="lazy" title="Videos de Caucasia" src="https://www.youtube-nocookie.com/embed/videoseries?list=PL7FU7iQDTXTtwzHyOR6iGB-25Xbj9lZ7R" allow="accelerometer; encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+            <p style="font-size:14px;color:var(--gris);margin:6px 0 0" data-t="videoNota2">Caucasia en video: lista de reproducción en YouTube.</p>
+          </div>
         </div>
-        <p style="font-size:14px;color:var(--gris);margin:6px 0 0" data-t="videoNota">Video del sector El Triángulo publicado en YouTube.</p>
       </div>
     </div>
 
@@ -450,7 +480,7 @@ const T = {
   pDia:"If the money were spent evenly over the 123 days, each day of work is worth",
   hNoCuadra:"What doesn't add up", noCuadraBajada:"These are questions, not accusations. They come from reading the published documents; there may be addenda or clarifications on SECOP that answer them. That is what a right-of-petition request is for.",
   hOjo:"Watch the site", ojoBajada:"If you live in or pass through El Triángulo, this is what the contract requires at the site. Check what you see.",
-  videoNota:"Video of the El Triángulo area published on YouTube.",
+  videoNota:"The El Triángulo area on video (YouTube).", videoNota2:"Caucasia on video: YouTube playlist.", foto1:"Caucasia, capital of Bajo Cauca. El Triángulo is here.", foto2:"Downtown streets.", foto3:"The Cauca River.",
   hBitacora:"My site log", bitacoraBajada:"Write down what you saw, with a photo. It is saved on your phone and you can send it on WhatsApp.",
   bFecha:"Date", bQue:"What you saw", bNota:"Details", bNotaPh:"E.g.: 6 workers with helmets, old paving removed on the north side.", bFoto:"Photo (optional)", bGuardar:"Save to my log",
   hFotos:"Photos of the works",
