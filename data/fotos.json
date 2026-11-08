@@ -1,6 +1,8 @@
 {
   "_como_agregar": "Suba las fotos a la carpeta fotos/ y agréguelas aquí arriba de la lista, así: {\"src\":\"fotos/2026-11-02-1.jpg\",\"fecha\":\"2026-11-02\",\"nota\":\"Ya instalaron la valla\",\"note\":\"The billboard is up\"}",
   "fotos": [
+    {"src":"fotos/2026-11-08-1.jpg","fecha":"2026-11-08","nota":"Ya empezaron las obras: cerramiento con polisombra verde y postes de madera a lo largo de la calle. Adentro sigue el escombro.","note":"Works have started: green mesh fencing and wooden posts along the street. Debris is still piled inside."},
+    {"src":"fotos/2026-11-08-2.jpg","fecha":"2026-11-08","nota":"La polisombra junto al andén. En estas fotos todavía no se ve la valla informativa de la obra.","note":"The green mesh next to the sidewalk. The site information billboard is still not visible in these photos."},
     {"src":"fotos/2026-10-28-1.jpg","fecha":"2026-10-28","nota":"Los árboles grandes y el lote del barrio El Triángulo. No se ve valla de obra.","note":"The big trees and the open lot in El Triángulo. No works billboard in sight."},
     {"src":"fotos/2026-10-28-2.jpg","fecha":"2026-10-28","nota":"El lote con basura y escombros sueltos junto al andén.","note":"The lot with loose trash and debris next to the sidewalk."},
     {"src":"fotos/2026-10-28-3.jpg","fecha":"2026-10-28","nota":"La calle y la franja verde con árboles.","note":"The street and the green strip with trees."},

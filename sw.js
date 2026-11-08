@@ -1,5 +1,5 @@
 // Primero la red (para que siempre salga lo último); si no hay internet, lo guardado.
-const CACHE = "parque-lineal-v1";
+const CACHE = "parque-lineal-v2";
 const BASE = ["./", "index.html", "manifest.json", "icon-192.png", "img/contrato.jpg", "img/acta-inicio.jpg", "img/invitacion-cronograma.jpg", "img/poliza-cumplimiento.jpg"];
 
 self.addEventListener("install", e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(BASE)).then(() => self.skipWaiting())); });
