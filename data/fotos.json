@@ -1,14 +1,77 @@
 {
   "_como_agregar": "Suba las fotos a la carpeta fotos/ y agréguelas aquí arriba de la lista, así: {\"src\":\"fotos/2026-11-02-1.jpg\",\"fecha\":\"2026-11-02\",\"nota\":\"Ya instalaron la valla\",\"note\":\"The billboard is up\"}",
   "fotos": [
-    {"src":"fotos/2026-11-08-1.jpg","fecha":"2026-11-08","nota":"Ya empezaron las obras: cerramiento con polisombra verde y postes de madera a lo largo de la calle. Adentro sigue el escombro.","note":"Works have started: green mesh fencing and wooden posts along the street. Debris is still piled inside."},
-    {"src":"fotos/2026-11-08-2.jpg","fecha":"2026-11-08","nota":"La polisombra junto al andén. En estas fotos todavía no se ve la valla informativa de la obra.","note":"The green mesh next to the sidewalk. The site information billboard is still not visible in these photos."},
-    {"src":"fotos/2026-10-28-1.jpg","fecha":"2026-10-28","nota":"Los árboles grandes y el lote del barrio El Triángulo. No se ve valla de obra.","note":"The big trees and the open lot in El Triángulo. No works billboard in sight."},
-    {"src":"fotos/2026-10-28-2.jpg","fecha":"2026-10-28","nota":"El lote con basura y escombros sueltos junto al andén.","note":"The lot with loose trash and debris next to the sidewalk."},
-    {"src":"fotos/2026-10-28-3.jpg","fecha":"2026-10-28","nota":"La calle y la franja verde con árboles.","note":"The street and the green strip with trees."},
-    {"src":"fotos/2026-10-28-4.jpg","fecha":"2026-10-28","nota":"Carros parqueados sobre la zona verde.","note":"Cars parked on the green area."},
-    {"src":"fotos/2026-10-28-5.jpg","fecha":"2026-10-28","nota":"El parque que ya existe, con juegos y bancas.","note":"The existing park, with play area and benches."},
-    {"src":"fotos/2026-10-28-6.jpg","fecha":"2026-10-28","nota":"Motos parqueadas en el andén del parque.","note":"Motorbikes parked on the park sidewalk."},
-    {"src":"fotos/2026-10-28-7.jpg","fecha":"2026-10-28","nota":"Senderos, árboles y bancas del parque.","note":"Paths, trees and benches in the park."}
+    {
+      "src": "fotos/2026-11-20-1.jpg",
+      "fecha": "2026-11-20",
+      "nota": "La obra avanza: zanja abierta, conos y trabajadores con chaleco y casco. Al fondo, un tronco de árbol arrancado.",
+      "note": "Work is moving: an open trench, cones and workers in vests and helmets. In the back, an uprooted tree trunk."
+    },
+    {
+      "src": "fotos/2026-11-20-3.jpg",
+      "fecha": "2026-11-20",
+      "nota": "La retroexcavadora removiendo tierra dentro del cerramiento.",
+      "note": "The backhoe moving earth inside the fenced site."
+    },
+    {
+      "src": "fotos/2026-11-20-2.jpg",
+      "fecha": "2026-11-20",
+      "nota": "Tierra removida y ramas de árboles cortados. ¿Hay permiso de Corantioquia para la tala?",
+      "note": "Turned earth and branches from felled trees. Is there a Corantioquia permit for the tree removal?"
+    },
+    {
+      "src": "fotos/2026-11-08-1.jpg",
+      "fecha": "2026-11-08",
+      "nota": "Ya empezaron las obras: cerramiento con polisombra verde y postes de madera a lo largo de la calle. Adentro sigue el escombro.",
+      "note": "Works have started: green mesh fencing and wooden posts along the street. Debris is still piled inside."
+    },
+    {
+      "src": "fotos/2026-11-08-2.jpg",
+      "fecha": "2026-11-08",
+      "nota": "La polisombra junto al andén. En estas fotos todavía no se ve la valla informativa de la obra.",
+      "note": "The green mesh next to the sidewalk. The site information billboard is still not visible in these photos."
+    },
+    {
+      "src": "fotos/2026-10-28-1.jpg",
+      "fecha": "2026-10-28",
+      "nota": "Los árboles grandes y el lote del barrio El Triángulo. No se ve valla de obra.",
+      "note": "The big trees and the open lot in El Triángulo. No works billboard in sight."
+    },
+    {
+      "src": "fotos/2026-10-28-2.jpg",
+      "fecha": "2026-10-28",
+      "nota": "El lote con basura y escombros sueltos junto al andén.",
+      "note": "The lot with loose trash and debris next to the sidewalk."
+    },
+    {
+      "src": "fotos/2026-10-28-3.jpg",
+      "fecha": "2026-10-28",
+      "nota": "La calle y la franja verde con árboles.",
+      "note": "The street and the green strip with trees."
+    },
+    {
+      "src": "fotos/2026-10-28-4.jpg",
+      "fecha": "2026-10-28",
+      "nota": "Carros parqueados sobre la zona verde.",
+      "note": "Cars parked on the green area."
+    },
+    {
+      "src": "fotos/2026-10-28-5.jpg",
+      "fecha": "2026-10-28",
+      "nota": "El parque que ya existe, con juegos y bancas.",
+      "note": "The existing park, with play area and benches."
+    },
+    {
+      "src": "fotos/2026-10-28-6.jpg",
+      "fecha": "2026-10-28",
+      "nota": "Motos parqueadas en el andén del parque.",
+      "note": "Motorbikes parked on the park sidewalk."
+    },
+    {
+      "src": "fotos/2026-10-28-7.jpg",
+      "fecha": "2026-10-28",
+      "nota": "Senderos, árboles y bancas del parque.",
+      "note": "Paths, trees and benches in the park."
+    }
   ]
 }
