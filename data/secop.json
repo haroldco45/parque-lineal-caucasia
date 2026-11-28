@@ -1,5 +1,5 @@
 {
- "hora": "2026-11-27T20:43:23.000Z",
+ "hora": "2026-11-28T03:06:06.499Z",
  "contrato": null,
  "proceso": {
   "entidad": "EMPRESA DE DESARROLLO URBANO DE ANDES - EDUAN",
@@ -46,7 +46,7 @@
   "nombre_del_adjudicador": "No Adjudicado",
   "nombre_del_proveedor": "M&L  S.A.S",
   "nit_del_proveedor_adjudicado": "901788317",
-  "codigo_principal_de_categoria": "UNSPECIFIED",
+  "codigo_principal_de_categoria": "V1.80101600",
   "estado_de_apertura_del_proceso": "Abierto",
   "tipo_de_contrato": "Obra",
   "subtipo_de_contrato": "No Definido",
